@@ -8,10 +8,6 @@ venv/
 
 TPCH/
 
-query.txt
-
-# Docker
-
 
 # DBT
 dbt_packages/
