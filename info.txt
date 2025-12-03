@@ -1,0 +1,22 @@
+docker compose run --rm airflow-webserver airflow connections add postgres_local --conn-type postgres --conn-host postgres_analytics --conn-schema staging --conn-login admin --conn-password admin --conn-port 5432
+
+
+cat -A .env
+
+
+sudo apt install dos2unix   # if not installed
+dos2unix .env
+
+
+| Change                                 | Action                                     |
+| -------------------------------------- | ------------------------------------------ |
+| DAG file                               | No restart needed                          |
+| DBT SQL / macros                       | No restart needed                          |
+| Python dependency (`requirements.txt`) | Rebuild Airflow image + restart containers |
+| Dockerfile                             | Rebuild Airflow image + restart containers |
+| `.env` variables                       | Restart affected containers                |
+| Postgres schema/data                   | Usually no rebuild, just restart if needed |
+
+
+docker compose run --rm airflow-webserver airflow connections add postgres_local \
+    --conn-uri "postgresql://admin:admin@postgres_analytics:5432/warehouse"

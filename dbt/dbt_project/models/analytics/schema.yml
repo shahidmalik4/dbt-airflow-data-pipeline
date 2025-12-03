@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: orders_over_time
+    description: "Orders/time-series for trend analysis"
+    columns:
+      - name: order_date
+        description: "Order date (day)"
+      - name: month
+        description: "Month bucket"
+
+  - name: revenue_by_region
+    description: "Monthly revenue aggregated by region and nation"
+    columns:
+      - name: month
+      - name: region_name
+      - name: revenue
+        tests:
+          - not_null
+
+  - name: top_products
+    description: "Products ranked by revenue"
+    columns:
+      - name: part_id
+        tests:
+          - not_null
+          - unique
+      - name: revenue
+        tests:
+          - not_null
+
+  - name: avg_order_value
+    description: "Average order value (AOV) by month"
+    columns:
+      - name: month
+      - name: avg_order_value
+
+  - name: top_customers
+    description: "Customers ranked by lifetime revenue"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: lifetime_revenue
+        tests:
+          - not_null
+
+  - name: customer_ltv
+    description: "Simple LTV by signup cohort"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null

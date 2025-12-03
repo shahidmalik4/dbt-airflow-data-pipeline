@@ -1,0 +1,10 @@
+faker
+psycopg2-binary
+astronomer-cosmos
+sqlalchemy
+fastapi
+uvicorn
+pydantic
+python-dotenv
+dbt-core
+dbt-postgres

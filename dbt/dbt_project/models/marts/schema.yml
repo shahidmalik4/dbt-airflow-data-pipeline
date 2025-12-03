@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: nation
+        tests:
+          - not_null
+
+  - name: dim_supplier
+    columns:
+      - name: supplier_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_part
+    columns:
+      - name: part_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fact_orders
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+
+  - name: fact_lineitem
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: part_id
+        tests:
+          - not_null

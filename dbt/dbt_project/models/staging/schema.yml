@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staging table for TPCH customer"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
+
+  - name: stg_orders
+    description: "Staging table for TPCH orders"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+
+  - name: stg_lineitems
+    description: "Staging table for TPCH lineitem"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: part_id
+        tests:
+          - not_null
+
+  - name: stg_part
+    columns:
+      - name: part_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
+
+  - name: stg_partsupp
+    columns:
+      - name: part_id
+        tests:
+          - not_null
+      - name: supplier_id
+        tests:
+          - not_null
+
+  - name: stg_supplier
+    columns:
+      - name: supplier_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
+
+  - name: stg_nation
+    columns:
+      - name: nation_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
+
+  - name: stg_region
+    columns:
+      - name: region_id
+        tests:
+          - not_null
+          - unique
+      - name: name
+        tests:
+          - not_null
