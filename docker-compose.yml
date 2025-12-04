@@ -34,6 +34,13 @@ services:
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@postgres_airflow:5432/${AIRFLOW_DB}
       AIRFLOW__WEBSERVER__WEB_SERVER_PORT: 8080
       DBT_PROFILES_DIR: /opt/airflow/dbt/dbt_project
+      PYTHONPATH: /opt/airflow
+      BASE_DIR: /opt/airflow/TPCH
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: postgres_analytics
+      POSTGRES_PORT: 5432
     ports:
       - "8080:8080"
     depends_on:
@@ -42,7 +49,9 @@ services:
     volumes:
       - ./dags:/opt/airflow/dags
       - ./dbt:/opt/airflow/dbt
+      - ./ingestion:/opt/airflow/ingestion
       - airflow_logs:/opt/airflow/logs
+      - ./TPCH:/opt/airflow/TPCH
     command: ["airflow", "webserver"]
 
   airflow-scheduler:
@@ -54,12 +63,21 @@ services:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@postgres_airflow:5432/${AIRFLOW_DB}
       DBT_PROFILES_DIR: /opt/airflow/dbt/dbt_project
+      PYTHONPATH: /opt/airflow
+      BASE_DIR: /opt/airflow/TPCH
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST: postgres_analytics
+      POSTGRES_PORT: 5432
     depends_on:
       - postgres_airflow
     volumes:
       - ./dags:/opt/airflow/dags
       - ./dbt:/opt/airflow/dbt
+      - ./ingestion:/opt/airflow/ingestion
       - airflow_logs:/opt/airflow/logs
+      - ./TPCH:/opt/airflow/TPCH
     command: ["airflow", "scheduler"]
 
 volumes:

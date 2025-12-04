@@ -9,9 +9,10 @@ DB_DSN = (
     f"dbname={os.getenv('POSTGRES_DB')} "
     f"user={os.getenv('POSTGRES_USER')} "
     f"password={os.getenv('POSTGRES_PASSWORD')} "
-    f"host=localhost "
+    f"host={os.getenv('POSTGRES_HOST', 'postgres_analytics')} "
     f"port={os.getenv('POSTGRES_PORT')}"
 )
+
 
 SCHEMA = "raw"
 BASE_DIR = os.getenv('BASE_DIR')
