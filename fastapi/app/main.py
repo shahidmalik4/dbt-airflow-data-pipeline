@@ -32,15 +32,6 @@ app.include_router(facts_router)
 app.include_router(kpis_router)
 app.include_router(dbt_router)
 
-@router.get("/dbt/debug")
-async def debug_dbt_path():
-    return {
-        "DBT_TARGET_PATH": str(DBT_TARGET_PATH),
-        "run_results_exists": (DBT_TARGET_PATH / "run_results.json").exists(),
-        "manifest_exists": (DBT_TARGET_PATH / "manifest.json").exists()
-    }
-
-
 @app.on_event("startup")
 async def on_startup():
     logger.info("Connecting to database...")
@@ -50,3 +41,4 @@ async def on_startup():
 async def on_shutdown():
     logger.info("Disconnecting from database...")
     await database.disconnect()
+
