@@ -8,7 +8,6 @@ router = APIRouter()
 
 logger = logging.getLogger("dbt-metadata")
 
-# Adjust this path according to your project structure
 DBT_TARGET_PATH = Path(__file__).resolve().parents[3] / "dbt" / "dbt_project" / "target"
 
 
@@ -34,7 +33,6 @@ async def get_dbt_metadata():
         except Exception:
             last_run = raw_timestamp
 
-        # Example: aggregate model statuses
         models_status = []
         for result in run_results.get("results", []):
             models_status.append({
@@ -43,7 +41,6 @@ async def get_dbt_metadata():
                 "execution_time": result.get("execution_time"),
             })
 
-        # Compose response
         response = {
             "last_run": last_run,
             "models_status": models_status,
@@ -63,4 +60,5 @@ async def get_dbt_metadata():
 
     except Exception as e:
         logger.error(f"Unexpected error fetching DBT metadata: {e}")
+
         raise HTTPException(status_code=500, detail="Internal Server Error reading DBT metadata")
