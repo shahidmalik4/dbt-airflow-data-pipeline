@@ -80,6 +80,24 @@ services:
       - ./TPCH:/opt/airflow/TPCH
     command: ["airflow", "scheduler"]
 
+  fastapi:
+    build: ./fastapi
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi:/app
+      - ./dbt/dbt_project:/dbt/dbt_project
+    environment:
+      POSTGRES_HOST: postgres_analytics
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - postgres_analytics
+
+
 volumes:
   pgdata:
   airflow_dbdata:

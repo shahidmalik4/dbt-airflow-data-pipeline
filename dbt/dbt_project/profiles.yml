@@ -1,12 +1,12 @@
 dbt_project:
   outputs:
     dev:
-      dbname: warehouse
-      host: localhost
+      type: postgres
+      host: postgres_analytics
+      user: admin
       pass: admin
       port: 5432
+      dbname: warehouse
       schema: staging
       threads: 1
-      type: postgres
-      user: admin
   target: dev
