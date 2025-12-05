@@ -104,4 +104,5 @@ async def get_top_products(limit: conint(gt=0, le=100) = Query(50)):
     """
     logger.info(f"GET /v1/analytics/top_products?limit={limit}")
     results = await run_query(sql, {"limit": limit})
+
     return results or Response(status_code=204)
