@@ -1,4 +1,5 @@
 services:
+  # PostgreSQL for Analytics / dbt
   postgres_analytics:
     image: postgres:15-alpine
     container_name: dbt_postgres
@@ -12,6 +13,7 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./sql-scripts/init-warehouse.sql:/docker-entrypoint-initdb.d/init.sql
 
+  # PostgreSQL for Airflow metadata
   postgres_airflow:
     image: postgres:15-alpine
     container_name: airflow_postgres
@@ -24,6 +26,7 @@ services:
     volumes:
       - airflow_dbdata:/var/lib/postgresql/data
 
+  # Airflow webserver
   airflow-webserver:
     build:
       context: .
@@ -54,6 +57,7 @@ services:
       - ./TPCH:/opt/airflow/TPCH
     command: ["airflow", "webserver"]
 
+  # Airflow scheduler
   airflow-scheduler:
     build:
       context: .
@@ -80,6 +84,7 @@ services:
       - ./TPCH:/opt/airflow/TPCH
     command: ["airflow", "scheduler"]
 
+  # FastAPI app
   fastapi:
     build: ./fastapi
     container_name: fastapi_app
@@ -97,8 +102,37 @@ services:
     depends_on:
       - postgres_analytics
 
+  # Metabase DB
+  metabase_db:
+    image: postgres:15-alpine
+    container_name: metabase_db
+    restart: always
+    environment:
+      POSTGRES_DB: metabase
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - metabase_data:/var/lib/postgresql/data
+
+  # Metabase
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: metabase
+      MB_DB_PORT: 5432
+      MB_DB_USER: admin
+      MB_DB_PASS: admin
+      MB_DB_HOST: metabase_db
+    depends_on:
+      - metabase_db
 
 volumes:
   pgdata:
   airflow_dbdata:
   airflow_logs:
+  metabase_data:
