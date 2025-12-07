@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # Exit on any error
+set -e
 
 # Load environment variables from .env
 if [ -f .env ]; then
@@ -20,7 +20,7 @@ done
 echo "=== Step 3: Initialize Airflow metadata database ==="
 docker compose run --rm airflow-webserver airflow db init
 
-# Create Admin user for Airflow web UI (idempotent)
+# Create Admin user for Airflow web UI
 echo "=== Step 4: Create Airflow UI admin user ==="
 docker compose run --rm airflow-webserver \
     airflow users create \
