@@ -1,5 +1,5 @@
 services:
-  # PostgreSQL for Analytics / dbt
+  # PostgreSQL for dbt
   postgres_analytics:
     image: postgres:15-alpine
     container_name: dbt_postgres
