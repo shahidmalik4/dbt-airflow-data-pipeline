@@ -1,9 +1,7 @@
 docker compose run --rm airflow-webserver airflow connections add postgres_local \
     --conn-uri "postgresql://admin:admin@postgres_analytics:5432/warehouse"
 
-
 SELECT table_schema, table_name, table_type FROM information_schema.tables WHERE table_schema NOT IN ('pg_catalog', 'information_schema') AND table_type IN ('BASE TABLE', 'VIEW') ORDER BY table_schema, table_name;
-
 
 DROP SCHEMA analytics CASCADE; DROP SCHEMA marts CASCADE; DROP SCHEMA staging CASCADE; DROP SCHEMA raw CASCADE;
 
@@ -18,47 +16,5 @@ dbt-airflow-data-pipeline_pgdata
 Postgres catalog inside pgdata got corrupted from previous runs.
 docker volume rm dbt-airflow-data-pipeline_pgdata
 
-
 docker compose up fastapi
 docker compose up airflow-webserver airflow-scheduler -d
-
-
-
-
-
-
-import in fastapi
-paths
-logging
-SCD/Incremental Modeling
-env vars
-data quality/data freshness
-
-
-
-fastapi/
-├── app/                        # Main application package
-│   ├── __init__.py
-│   ├── main.py                 # Entry point for FastAPI app
-│   ├── config.py               # Config vars (DB connection, environment, etc.)
-│   ├── routers/                # All route modules
-│   │   ├── __init__.py
-│   │   ├── dims_router.py      # Dimensional models endpoints
-│   │   ├── facts_router.py     # Fact models endpoints
-│   │   ├── kpis_router.py      # KPIs endpoints
-│   │   └── dbt_metadata.py    # DBT metadata/status endpoints
-│   ├── schemas/                # Pydantic schemas for validation
-│   │   ├── __init__.py
-│   │   └── dim_schemas.py
-│   ├── services/               # Business logic / data access
-│   │   ├── __init__.py
-│   │   ├── dbt_service.py      # DBT interaction logic
-│   │   ├── dim_service.py      # Dimensional table queries
-│   │   └── fact_service.py     # Fact table queries
-│   ├── utils/                  # Helper modules
-│   │   ├── __init__.py
-│   │   ├── db.py               # Database connection (async engine)
-│   │   └── logging.py          # Logger config
-├── Dockerfile
-├── requirements.txt
-└── README.md
