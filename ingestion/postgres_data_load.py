@@ -4,7 +4,6 @@ import os
 
 load_dotenv()
 
-# ------------- DB CONFIG -------------
 DB_DSN = (
     f"dbname={os.getenv('POSTGRES_DB')} "
     f"user={os.getenv('POSTGRES_USER')} "
@@ -13,14 +12,11 @@ DB_DSN = (
     f"port={os.getenv('POSTGRES_PORT')}"
 )
 
-
 SCHEMA = "raw"
 BASE_DIR = os.getenv('BASE_DIR')
 DELIMITER = "|"          
 TRUNCATE_BEFORE_LOAD = True
 
-
-# TPC-H table definitions (Postgres types)
 TABLE_DEFS = {
     "customer": {
         "filename": "customer.tbl",
