@@ -8,13 +8,11 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from cosmos import DbtTaskGroup, ProjectConfig, ProfileConfig
 from cosmos.profiles.postgres import PostgresUserPasswordProfileMapping
 
-# Import your ingestion function
 from ingestion.postgres_data_load import main as load_raw_data
 
 # Add project root to Python path (if needed)
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-# ---------------- DBT CONFIG ----------------
 DBT_PROJECT_PATH = Path("/opt/airflow/dbt/dbt_project")
 POSTGRES_CONN_ID = "postgres_local"
 
@@ -28,7 +26,7 @@ _profile_config = ProfileConfig(
     ),
 )
 
-# ---------------- DAG ----------------
+
 with DAG(
     dag_id="full_tpch_dbt_pipeline",
     schedule="@daily",
@@ -51,6 +49,5 @@ with DAG(
         project_config=_project_config,
         profile_config=_profile_config,
     )
-
 
     load_raw_task >> dbt_run
