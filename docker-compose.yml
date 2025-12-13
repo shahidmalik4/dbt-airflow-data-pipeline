@@ -3,6 +3,7 @@ services:
   postgres_analytics:
     image: postgres:15-alpine
     container_name: dbt_postgres
+    shm_size: '512mb'
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -32,6 +33,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: airflow_webserver
+    user: "${UID}:0"
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@postgres_airflow:5432/${AIRFLOW_DB}
@@ -63,6 +65,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: airflow_scheduler
+    user: "${UID}:0"
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_USER}:${AIRFLOW_PASSWORD}@postgres_airflow:5432/${AIRFLOW_DB}

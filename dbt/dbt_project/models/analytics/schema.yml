@@ -6,8 +6,12 @@ models:
     columns:
       - name: order_date
         description: "Order date (day)"
+        tests:
+          - not_null
       - name: month
         description: "Month bucket"
+        tests:
+          - not_null
 
   - name: revenue_by_region
     description: "Monthly revenue aggregated by region and nation"
@@ -33,7 +37,11 @@ models:
     description: "Average order value (AOV) by month"
     columns:
       - name: month
+        tests:
+          - not_null
       - name: avg_order_value
+        tests:
+          - not_null
 
   - name: top_customers
     description: "Customers ranked by lifetime revenue"
@@ -52,3 +60,118 @@ models:
       - name: customer_id
         tests:
           - not_null
+
+  - name: daily_sales
+    description: "Daily sales metrics with total revenue, orders, and average line revenue"
+    columns:
+      - name: sales_date
+        description: "Date of the sale"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total number of orders per day"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Total revenue per day"
+        tests:
+          - not_null
+      - name: avg_line_revenue
+        description: "Average revenue per line item"
+        tests:
+          - not_null
+
+  - name: customer_cohort_retention
+    description: "Customer retention by signup cohort over months"
+    columns:
+      - name: cohort_month
+        description: "Month when customer placed first order"
+        tests:
+          - not_null
+      - name: months_since_first_order
+        description: "Number of months since first order"
+      - name: active_customers
+        description: "Number of active customers in the cohort for that month"
+        tests:
+          - not_null
+
+  - name: supplier_performance_metrics
+    description: "Supplier KPIs including revenue, order counts, delivery efficiency, and late delivery rate"
+    columns:
+      - name: supplier_id
+        description: "Supplier identifier"
+        tests:
+          - not_null
+          - unique
+      - name: supplier_name
+        description: "Supplier name"
+      - name: total_orders
+        description: "Total orders supplied"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Revenue from the supplier"
+        tests:
+          - not_null
+      - name: avg_delivery_days
+        description: "Average days taken to deliver orders"
+      - name: late_delivery_rate
+        description: "Percentage of late deliveries"
+
+  - name: product_profitability
+    description: "Revenue and quantity metrics per product"
+    columns:
+      - name: part_id
+        description: "Product identifier"
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: "Product name"
+      - name: total_quantity_sold
+        description: "Total units sold"
+      - name: gross_revenue
+        description: "Total revenue from the product"
+        tests:
+          - not_null
+      - name: avg_unit_price
+        description: "Average selling price per unit"
+
+  - name: regional_sales_performance
+    description: "Sales metrics aggregated by region and nation"
+    columns:
+      - name: region_name
+        description: "Region name"
+        tests:
+          - not_null
+      - name: nation_name
+        description: "Nation name within the region"
+        tests:
+          - not_null
+      - name: total_revenue
+        description: "Total revenue for the region/nation"
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total orders for the region/nation"
+        tests:
+          - not_null
+
+  - name: order_fulfillment_efficiency
+    description: "Order-level metrics for delivery efficiency"
+    columns:
+      - name: order_id
+        description: "Order identifier"
+        tests:
+          - not_null
+          - unique
+      - name: order_date
+        description: "Order date"
+        tests:
+          - not_null
+      - name: order_priority
+        description: "Order priority category"
+      - name: delivery_days
+        description: "Days taken from order to shipment"
+      - name: on_time_delivery
+        description: "Boolean indicating if delivery met commit date"

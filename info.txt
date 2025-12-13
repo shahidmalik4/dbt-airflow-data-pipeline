@@ -1,3 +1,5 @@
+docker compose run --rm airflow-webserver airflow db init
+
 docker compose run --rm airflow-webserver airflow connections add postgres_local \
     --conn-uri "postgresql://admin:admin@postgres_analytics:5432/warehouse"
 
@@ -18,3 +20,17 @@ docker volume rm dbt-airflow-data-pipeline_pgdata
 
 docker compose up fastapi
 docker compose up airflow-webserver airflow-scheduler -d
+<<<<<<< HEAD
+=======
+
+
+export UID=$(id -u)
+export GID=$(id -g)
+
+docker compose exec airflow-webserver bash
+
+cd dbt/dbt_project
+dbt debug
+dbt run
+dbt docs generate
+>>>>>>> ffc3e9c (added dbt analytics models)

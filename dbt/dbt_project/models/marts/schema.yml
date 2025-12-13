@@ -25,6 +25,13 @@ models:
           - not_null
           - unique
 
+  - name: dim_partsupp
+    columns:
+      - name: supplier_id
+        tests:
+          - not_null
+          - unique
+
   - name: fact_orders
     columns:
       - name: order_id
