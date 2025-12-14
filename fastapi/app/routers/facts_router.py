@@ -4,14 +4,12 @@ from pydantic import conint
 import logging
 
 from ..utils.db import run_query
-from ..schemas import FactOrders, FactLineItem
+from ..schemas.facts import FactOrders, FactLineItem
 
 router = APIRouter(prefix="/v1/facts", tags=["Facts"])
 logger = logging.getLogger("analytics-api")
 
-# -------------------------
-# Fact Orders
-# -------------------------
+
 @router.get("/orders", response_model=List[FactOrders])
 async def get_fact_orders(
     limit: conint(gt=0, le=100) = Query(50),
@@ -38,9 +36,7 @@ async def get_fact_orders(
     results = await run_query(sql, {"limit": limit})
     return results or Response(status_code=204)
 
-# -------------------------
-# Fact LineItems
-# -------------------------
+
 @router.get("/lineitems", response_model=List[FactLineItem])
 async def get_fact_lineitems(
     limit: conint(gt=0, le=100) = Query(50),

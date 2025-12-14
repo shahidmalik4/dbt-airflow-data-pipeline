@@ -20,9 +20,6 @@ docker volume rm dbt-airflow-data-pipeline_pgdata
 
 docker compose up fastapi
 docker compose up airflow-webserver airflow-scheduler -d
-<<<<<<< HEAD
-=======
-
 
 export UID=$(id -u)
 export GID=$(id -g)
@@ -33,4 +30,3 @@ cd dbt/dbt_project
 dbt debug
 dbt run
 dbt docs generate
->>>>>>> ffc3e9c (added dbt analytics models)

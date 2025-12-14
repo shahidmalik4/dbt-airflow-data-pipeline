@@ -4,14 +4,12 @@ from pydantic import conint
 import logging
 
 from ..utils.db import run_query
-from ..schemas import DimCustomer, DimPart, DimPartsupp, DimSupplier
+from ..schemas.dimensions import DimCustomer, DimPart, DimPartsupp, DimSupplier
 
 router = APIRouter(prefix="/v1/dimensions", tags=["Dimensions"])
 logger = logging.getLogger("analytics-api")
 
-# -------------------------
-# Dim Customers
-# -------------------------
+
 @router.get("/customers", response_model=List[DimCustomer])
 async def get_dim_customers(
     limit: conint(gt=0, le=100) = Query(50),
@@ -37,9 +35,7 @@ async def get_dim_customers(
     results = await run_query(sql, {"limit": limit})
     return results or Response(status_code=204)
 
-# -------------------------
-# Dim Parts
-# -------------------------
+
 @router.get("/parts", response_model=List[DimPart])
 async def get_dim_parts(
     limit: conint(gt=0, le=100) = Query(50),
@@ -62,9 +58,7 @@ async def get_dim_parts(
     results = await run_query(sql, {"limit": limit})
     return results or Response(status_code=204)
 
-# -------------------------
-# Dim Partsupp
-# -------------------------
+
 @router.get("/partsupp", response_model=List[DimPartsupp])
 async def get_dim_partsupp(
     limit: conint(gt=0, le=100) = Query(50),
@@ -87,9 +81,7 @@ async def get_dim_partsupp(
     results = await run_query(sql, {"limit": limit})
     return results or Response(status_code=204)
 
-# -------------------------
-# Dim Supplier
-# -------------------------
+
 @router.get("/suppliers", response_model=List[DimSupplier])
 async def get_dim_suppliers(
     limit: conint(gt=0, le=100) = Query(50),
