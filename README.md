@@ -40,23 +40,7 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ---
 
-## 📊 dbt Analytics Models
-
-Implemented **real-world business analytics models**:
-
-- Orders Over Time
-- Average Order Value (AOV)
-- Daily Sales
-- Revenue by Region
-- Top Customers
-- Top Products
-- Product Profitability
-- Supplier Performance
-- Regional Sales Performance
-- Order Fulfillment Efficiency
-- Customer Cohort Retention
-
-### dbt Features Used
+## 📊 dbt Features Used
 - Staging → Marts → Analytics layers
 - Tests & custom tests
 - Incremental models
