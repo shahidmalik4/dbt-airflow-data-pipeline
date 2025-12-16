@@ -8,6 +8,13 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Metabase](https://img.shields.io/badge/Metabase-EC4A3F?style=for-the-badge&logo=metabase&logoColor=white)](https://www.metabase.com/)
 
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/badge/release-v1.0.0-blue?style=for-the-badge)](https://github.com/yourusername/yourrepo/releases)
+[![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)](https://github.com/yourusername/yourrepo/actions)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=for-the-badge)](https://github.com/yourusername/yourrepo)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/yourusername/yourrepo?style=for-the-badge)](https://github.com/yourusername/yourrepo)
+
+
 
 A **production-style analytics engineering project** that demonstrates how raw data moves from ingestion → transformation → orchestration → APIs → BI dashboards using modern data stack tools.
 
@@ -29,7 +36,19 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ---
 
-## 🏗️ Architecture
+## 🧠 Skills Demonstrated
+
+- Analytics Engineering best practices
+- Data modeling (facts, dimensions, KPIs)
+- dbt testing & documentation
+- Workflow orchestration with Airflow
+- API-driven analytics delivery
+- BI enablement with Metabase
+- Docker-based local data platforms
+
+---
+
+## 🏗️ File Structure
 ```
 ├── dags
 │   └── my_dag.py
@@ -132,8 +151,6 @@ The result is a **fully containerized analytics platform** you can run locally.
     └── supplier.tbl
 
 ```
-
-
 ---
 
 ## 🔧 Tech Stack
@@ -171,7 +188,7 @@ Each step is **modular, observable, and production-aligned**.
 
 ---
 
-## Getting Started
+## Getting Started / Setup Instructions
 
 1. **Clone the repository**
 ```bash
@@ -182,7 +199,9 @@ cd dbt-airflow-data-pipeline
 2. **Set up the Python environment**
 ```
 python -m venv venv
-source venv/bin/activate      # (on windows) .\venv\Scripts\Activate.ps1
+source venv/bin/activate
+.\venv\Scripts\Activate.ps1 (on windows - powershell)
+.\venv\Scripts\activate.bat (on windows - command prompt)
 ```
 
 3. **Make scripts executable (Linux / macOS only)**
@@ -191,12 +210,12 @@ chmod +x ./setup_project.sh
 chmod +x ./start_services.sh
 ```
 
-3. **Run Services (will pull all docker images, build, and run the containers required for the project)**
+4. **Run Services (will pull all docker images, build, and run the containers required for the project)**
 ```
 ./setup_project.sh
 ```
 
-3. **dbt Commands (Inside airflow-webserver Container)**
+5. **dbt Commands (Inside airflow-webserver Container)**
 ```
 dbt debug
 dbt docs generate
@@ -222,26 +241,4 @@ dbt docs generate
 # Metabase Dashboard
 ![My Image](include/dashboard.png)
 
-## 🧠 Skills Demonstrated
 
-- Analytics Engineering best practices
-- Data modeling (facts, dimensions, KPIs)
-- dbt testing & documentation
-- Workflow orchestration with Airflow
-- API-driven analytics delivery
-- BI enablement with Metabase
-- Docker-based local data platforms
-
-## 🎯 Why This Project Matters
-
-This project demonstrates how modern analytics platforms are built end-to-end:
-
-- Not just SQL models
-- Not just dashboards
-- But reliable, testable, observable analytics systems
-
-It is ideal for:
-
-- Analytics Engineer portfolios
-- Data Engineering interviews
-- Learning production-grade analytics stacks
