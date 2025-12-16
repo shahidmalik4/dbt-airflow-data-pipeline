@@ -8,9 +8,6 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Metabase](https://img.shields.io/badge/Metabase-EC4A3F?style=for-the-badge&logo=metabase&logoColor=white)](https://www.metabase.com/)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Release](https://img.shields.io/badge/release-v1.0.0-blue?style=for-the-badge)](https://github.com/yourusername/yourrepo/releases)
-
-
 
 
 A **production-style analytics engineering project** that demonstrates how raw data moves from ingestion → transformation → orchestration → APIs → BI dashboards using modern data stack tools.
