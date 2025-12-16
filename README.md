@@ -7,12 +7,9 @@
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009485?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Metabase](https://img.shields.io/badge/Metabase-EC4A3F?style=for-the-badge&logo=metabase&logoColor=white)](https://www.metabase.com/)
-
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/badge/release-v1.0.0-blue?style=for-the-badge)](https://github.com/yourusername/yourrepo/releases)
-[![Build](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge)](https://github.com/yourusername/yourrepo/actions)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=for-the-badge)](https://github.com/yourusername/yourrepo)
-[![GitHub Repo Size](https://img.shields.io/github/repo-size/yourusername/yourrepo?style=for-the-badge)](https://github.com/yourusername/yourrepo)
+
 
 
 
