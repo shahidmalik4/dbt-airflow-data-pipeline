@@ -196,8 +196,17 @@ chmod +x ./start_services.sh
 ./setup_project.sh
 ```
 
+---
 
+## 🌐 Access Services
 
+| Service  | URL                        |
+|----------|----------------------------|
+| Airflow  | [http://localhost:8080](http://localhost:8080) |
+| FastAPI  | [http://localhost:8000/docs](http://localhost:8000/docs) |
+| Metabase | [http://localhost:3000](http://localhost:3000) |
+
+---
 
 
 
