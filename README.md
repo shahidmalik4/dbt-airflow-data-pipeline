@@ -1,4 +1,4 @@
-## End-to-End Analytics Engineering Platform  
+## End-to-End Analytics Engineering Project  
 
 [![Python](https://img.shields.io/badge/python-3.11-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
