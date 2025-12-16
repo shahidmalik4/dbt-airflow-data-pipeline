@@ -23,11 +23,8 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ## 🏗️ Architecture
 ```
-.
 ├── dags
-│   ├── my_dag.py
-│   └── __pycache__
-│       └── my_dag.cpython-310.pyc
+│   └── my_dag.py
 ├── dbt
 │   └── dbt_project
 │       ├── analyses
@@ -83,40 +80,22 @@ The result is a **fully containerized analytics platform** you can run locally.
 │   ├── analytics_api.log
 │   ├── app
 │   │   ├── main.py
-│   │   ├── __pycache__
-│   │   │   ├── main.cpython-311.pyc
-│   │   │   └── schemas.cpython-311.pyc
 │   │   ├── routers
 │   │   │   ├── dbt_metadata.py
 │   │   │   ├── dims_router.py
 │   │   │   ├── facts_router.py
 │   │   │   ├── __init__.py
-│   │   │   ├── kpis_router.py
-│   │   │   └── __pycache__
-│   │   │       ├── dbt_metadata.cpython-311.pyc
-│   │   │       ├── dims_router.cpython-311.pyc
-│   │   │       ├── facts_router.cpython-311.pyc
-│   │   │       ├── __init__.cpython-311.pyc
-│   │   │       └── kpis_router.cpython-311.pyc
+│   │   │   └── kpis_router.py
 │   │   ├── schemas
 │   │   │   ├── analytics.py
 │   │   │   ├── dbt.py
 │   │   │   ├── dimensions.py
 │   │   │   ├── facts.py
-│   │   │   ├── __init__.py
-│   │   │   └── __pycache__
-│   │   │       ├── analytics.cpython-311.pyc
-│   │   │       ├── dimensions.cpython-311.pyc
-│   │   │       ├── facts.cpython-311.pyc
-│   │   │       └── __init__.cpython-311.pyc
+│   │   │   └── __init__.py
 │   │   └── utils
 │   │       ├── db.py
 │   │       ├── __init__.py
-│   │       ├── logging.py
-│   │       └── __pycache__
-│   │           ├── db.cpython-311.pyc
-│   │           ├── __init__.cpython-311.pyc
-│   │           └── logging.cpython-311.pyc
+│   │       └── logging.py
 │   ├── Dockerfile
 │   └── requirements.txt
 ├── include
@@ -126,10 +105,7 @@ The result is a **fully containerized analytics platform** you can run locally.
 ├── ingestion
 │   ├── __init__.py
 │   ├── load_faker_data.py
-│   ├── postgres_data_load.py
-│   └── __pycache__
-│       ├── __init__.cpython-310.pyc
-│       └── postgres_data_load.cpython-310.pyc
+│   └── postgres_data_load.py
 ├── README.md
 ├── requirements.txt
 ├── setup_project.sh
@@ -146,8 +122,6 @@ The result is a **fully containerized analytics platform** you can run locally.
     ├── part.tbl
     ├── region.tbl
     └── supplier.tbl
-
-30 directories, 92 files
 
 ```
 
