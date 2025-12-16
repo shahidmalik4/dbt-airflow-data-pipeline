@@ -163,7 +163,30 @@ Each step is **modular, observable, and production-aligned**.
 
 ---
 
+## Getting Started
 
+1. **Clone the repository**
+```bash
+git clone https://github.com/shahidmalik4/dbt-airflow-data-pipeline.git
+cd dbt-airflow-data-pipeline
+```
+
+2. **Set up the Python environment**
+```
+python -m venv venv
+source venv/bin/activate      # (on windows) .\venv\Scripts\Activate.ps1
+```
+
+3. **Make scripts executable (Linux / macOS only)**
+```
+chmod +x ./setup_project.sh
+chmod +x ./start_services.sh
+```
+
+3. **Run Services**
+```
+./setup_project.sh  # Will pull all images, build and run the containers
+```
 
 
 
