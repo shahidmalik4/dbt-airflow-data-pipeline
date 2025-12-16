@@ -30,7 +30,7 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ---
 
-## 🧠 Skills Demonstrated
+## ⚡ Skills Demonstrated
 
 - Analytics Engineering best practices
 - Data modeling (facts, dimensions, KPIs)
