@@ -183,9 +183,9 @@ chmod +x ./setup_project.sh
 chmod +x ./start_services.sh
 ```
 
-3. **Run Services**
+3. **Run Services (will pull all docker images, build, and run the containers required for the project)**
 ```
-./setup_project.sh  # Will pull all images, build and run the containers
+./setup_project.sh
 ```
 
 
