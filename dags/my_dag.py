@@ -26,7 +26,6 @@ _profile_config = ProfileConfig(
     ),
 )
 
-
 with DAG(
     dag_id="full_tpch_dbt_pipeline",
     schedule="@daily",
