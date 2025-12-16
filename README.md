@@ -215,17 +215,33 @@ dbt docs generate
 
 ---
 
-
-
-
-
-
-
-
-
 # FastAPI Swagger UI
 ![My Image](include/fastapi.png)
 
 
 # Metabase Dashboard
 ![My Image](include/dashboard.png)
+
+## 🧠 Skills Demonstrated
+
+- Analytics Engineering best practices
+- Data modeling (facts, dimensions, KPIs)
+- dbt testing & documentation
+- Workflow orchestration with Airflow
+- API-driven analytics delivery
+- BI enablement with Metabase
+- Docker-based local data platforms
+
+## 🎯 Why This Project Matters
+
+This project demonstrates how modern analytics platforms are built end-to-end:
+
+- Not just SQL models
+- Not just dashboards
+- But reliable, testable, observable analytics systems
+
+It is ideal for:
+
+- Analytics Engineer portfolios
+- Data Engineering interviews
+- Learning production-grade analytics stacks
