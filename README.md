@@ -42,6 +42,41 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ---
 
+```
+├── dags/
+│   └── my_dag.py
+├── dbt/
+│   ├── dbt_project/
+│   │   ├── models/
+│   │   │   ├── staging/
+│   │   │   ├── marts/
+│   │   │   └── analytics/
+│   │   ├── macros/
+│   │   ├── tests/
+│   │   └── dbt_project.yml
+│   └── profiles.yml
+├── fastapi/
+│   ├── app/
+│   │   ├── routers/
+│   │   ├── schemas/
+│   │   └── utils/
+│   ├── Dockerfile
+│   └── requirements.txt
+├── ingestion/
+│   ├── load_faker_data.py
+│   └── postgres_data_load.py
+├── docker-compose.yml
+├── Dockerfile
+├── setup_project.sh
+├── start_services.sh
+├── sql-scripts/
+│   ├── init-airflow.sql
+│   └── init-warehouse.sql
+└── TPCH/
+    └── *.tbl
+
+```
+
 ## 🏗️ File Structure
 ```
 ├── dags
