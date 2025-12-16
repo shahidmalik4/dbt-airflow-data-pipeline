@@ -203,6 +203,7 @@ chmod +x ./start_services.sh
 | Service  | URL                        |
 |----------|----------------------------|
 | Airflow  | [http://localhost:8080](http://localhost:8080) |
+| DBT Docs  | [http://localhost:8081](http://localhost:8081) |
 | FastAPI  | [http://localhost:8000/docs](http://localhost:8000/docs) |
 | Metabase | [http://localhost:3000](http://localhost:3000) |
 
