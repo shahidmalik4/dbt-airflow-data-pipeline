@@ -42,6 +42,7 @@ The result is a **fully containerized analytics platform** you can run locally.
 
 ---
 
+## 🏗️ File Structure
 ```
 ├── dags/
 │   └── my_dag.py
@@ -74,110 +75,6 @@ The result is a **fully containerized analytics platform** you can run locally.
 │   └── init-warehouse.sql
 └── TPCH/
     └── *.tbl
-
-```
-
-## 🏗️ File Structure
-```
-├── dags
-│   └── my_dag.py
-├── dbt
-│   └── dbt_project
-│       ├── analyses
-│       ├── dbt_project.yml
-│       ├── logs
-│       │   └── dbt.log
-│       ├── macros
-│       │   └── generate_schema_name.sql
-│       ├── models
-│       │   ├── analytics
-│       │   │   ├── avg_order_value.sql
-│       │   │   ├── customer_cohort_retention.sql
-│       │   │   ├── customer_ltv.sql
-│       │   │   ├── daily_sales.sql
-│       │   │   ├── order_fulfillment_efficiency.sql
-│       │   │   ├── orders_over_time.sql
-│       │   │   ├── product_profitability.sql
-│       │   │   ├── regional_sales_performance.sql
-│       │   │   ├── revenue_by_region.sql
-│       │   │   ├── schema.yml
-│       │   │   ├── supplier_performance_metrics.sql
-│       │   │   ├── top_customers.sql
-│       │   │   └── top_products.sql
-│       │   ├── marts
-│       │   │   ├── dims
-│       │   │   │   ├── dim_customer.sql
-│       │   │   │   ├── dim_part.sql
-│       │   │   │   ├── dim_partsupp.sql
-│       │   │   │   └── dim_supplier.sql
-│       │   │   ├── facts
-│       │   │   │   ├── fact_lineitem.sql
-│       │   │   │   └── fact_orders.sql
-│       │   │   └── schema.yml
-│       │   └── staging
-│       │       ├── schema.yml
-│       │       ├── sources.yml
-│       │       ├── stg_customers.sql
-│       │       ├── stg_lineitems.sql
-│       │       ├── stg_nation.sql
-│       │       ├── stg_orders.sql
-│       │       ├── stg_part.sql
-│       │       ├── stg_partsupp.sql
-│       │       ├── stg_region.sql
-│       │       └── stg_supplier.sql
-│       ├── profiles.yml
-│       ├── README.md
-│       ├── seeds
-│       ├── snapshots
-│       └── tests
-├── docker-compose.yml
-├── Dockerfile
-├── fastapi
-│   ├── analytics_api.log
-│   ├── app
-│   │   ├── main.py
-│   │   ├── routers
-│   │   │   ├── dbt_metadata.py
-│   │   │   ├── dims_router.py
-│   │   │   ├── facts_router.py
-│   │   │   ├── __init__.py
-│   │   │   └── kpis_router.py
-│   │   ├── schemas
-│   │   │   ├── analytics.py
-│   │   │   ├── dbt.py
-│   │   │   ├── dimensions.py
-│   │   │   ├── facts.py
-│   │   │   └── __init__.py
-│   │   └── utils
-│   │       ├── db.py
-│   │       ├── __init__.py
-│   │       └── logging.py
-│   ├── Dockerfile
-│   └── requirements.txt
-├── include
-│   ├── dashboard.png
-│   └── fastapi.png
-├── info.txt
-├── ingestion
-│   ├── __init__.py
-│   ├── load_faker_data.py
-│   └── postgres_data_load.py
-├── README.md
-├── requirements.txt
-├── setup_project.sh
-├── sql-scripts
-│   ├── init-airflow.sql
-│   └── init-warehouse.sql
-├── start_services.sh
-└── TPCH
-    ├── customer.tbl
-    ├── lineitem.tbl
-    ├── nation.tbl
-    ├── orders.tbl
-    ├── partsupp.tbl
-    ├── part.tbl
-    ├── region.tbl
-    └── supplier.tbl
 
 ```
 ---
@@ -263,11 +160,11 @@ dbt docs generate
 
 ---
 
-# FastAPI Swagger UI
+## FastAPI Swagger UI
 ![My Image](include/fastapi.png)
 
 
-# Metabase Dashboard
+## Metabase Dashboard
 ![My Image](include/dashboard.png)
 
 
