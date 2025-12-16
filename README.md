@@ -196,6 +196,12 @@ chmod +x ./start_services.sh
 ./setup_project.sh
 ```
 
+3. **dbt Commands (Inside airflow-webserver Container)**
+```
+dbt debug
+dbt docs generate
+```
+
 ---
 
 ## 🌐 Access Services
