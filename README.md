@@ -122,7 +122,14 @@ git clone https://github.com/shahidmalik4/dbt-airflow-data-pipeline.git
 cd dbt-airflow-data-pipeline
 ```
 
-2. **Set up the Python environment**
+1. **Download the dataset (create a folder TPCH and load the files)**
+```bash
+https://github.com/aleaugustoplus/tpch-data
+or
+https://www.kaggle.com/datasets/davidalexander01/tpc-h-dataset
+```
+
+3. **Set up the Python environment**
 ```
 python -m venv venv
 source venv/bin/activate
@@ -130,18 +137,18 @@ source venv/bin/activate
 .\venv\Scripts\activate.bat (on windows - command prompt)
 ```
 
-3. **Make scripts executable (Linux / macOS only)**
+4. **Make scripts executable (Linux / macOS only)**
 ```
 chmod +x ./setup_project.sh
 chmod +x ./start_services.sh
 ```
 
-4. **Run Services (will pull all docker images, build, and run the containers required for the project)**
+5. **Run Services (will pull all docker images, build, and run the containers required for the project)**
 ```
 ./setup_project.sh
 ```
 
-5. **dbt Commands (Inside airflow-webserver Container)**
+6. **dbt Commands (Inside airflow-webserver Container)**
 ```
 dbt debug
 dbt docs generate
