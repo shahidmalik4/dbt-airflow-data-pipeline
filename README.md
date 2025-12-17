@@ -160,11 +160,14 @@ dbt docs generate
 
 ---
 
+## dbt Lineage Graph
+![dbt lineage graph](include/dbt_lineage.png)
+
 ## FastAPI Swagger UI
-![My Image](include/fastapi.png)
+![fastapi swagger ui](include/fastapi.png)
 
 
 ## Metabase Dashboard
-![My Image](include/dashboard.png)
+![metabase dashboard](include/dashboard.png)
 
 
