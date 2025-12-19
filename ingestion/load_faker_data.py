@@ -4,9 +4,6 @@ import random
 
 fake = Faker()
 
-# -----------------------------
-# Connect to Postgres
-# -----------------------------
 conn = psycopg2.connect(
     f"dbname={os.getenv('POSTGRES_DB')} "
     f"user={os.getenv('POSTGRES_USER')} "
@@ -17,9 +14,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-# -----------------------------
 # Drop tables if they exist
-# -----------------------------
 cur.execute("""
 DROP TABLE IF EXISTS raw.order_details;
 DROP TABLE IF EXISTS raw.orders;
@@ -27,9 +22,7 @@ DROP TABLE IF EXISTS raw.products;
 DROP TABLE IF EXISTS raw.customers;
 """)
 
-# -----------------------------
 # Create tables
-# -----------------------------
 cur.execute("""
 CREATE TABLE IF NOT EXISTS raw.customers (
     customer_id SERIAL PRIMARY KEY,
@@ -65,16 +58,11 @@ CREATE TABLE IF NOT EXISTS raw.order_details (
 conn.commit()
 print("Tables created successfully in raw schema!")
 
-# -----------------------------
-# Parameters
-# -----------------------------
+
 NUM_CUSTOMERS = 500      # adjust as needed
 NUM_PRODUCTS = 4300       # adjust as needed
 BATCH_SIZE = 500
 
-# -----------------------------
-# Insert Customers
-# -----------------------------
 customer_ids = []
 customer_batch = []
 
@@ -101,9 +89,8 @@ if customer_batch:
 
 print(f"{len(customer_ids)} customers inserted.")
 
-# -----------------------------
+
 # Insert Products
-# -----------------------------
 product_ids = []
 product_batch = []
 
@@ -130,9 +117,7 @@ if product_batch:
 
 print(f"{len(product_ids)} products inserted.")
 
-# -----------------------------
 # Insert Orders & Order Details
-# -----------------------------
 total_orders = 0
 total_order_details = 0
 orders_batch = []
@@ -200,9 +185,7 @@ if order_details_batch:
     cur.execute(f"INSERT INTO raw.order_details (order_id, product_id, quantity, price) VALUES {values_str}")
     conn.commit()
 
-# -----------------------------
-# Print Summary
-# -----------------------------
+
 cur.execute("SELECT COUNT(*) FROM raw.customers")
 num_customers = cur.fetchone()[0]
 cur.execute("SELECT COUNT(*) FROM raw.products")
@@ -219,3 +202,4 @@ print("===================================")
 
 cur.close()
 conn.close()
+
