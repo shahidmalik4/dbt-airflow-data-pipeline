@@ -41,4 +41,3 @@ async def on_startup():
 async def on_shutdown():
     logger.info("Disconnecting from database...")
     await database.disconnect()
-
