@@ -1,4 +1,5 @@
 services:
+
   # PostgreSQL for dbt
   postgres_analytics:
     image: postgres:15-alpine
